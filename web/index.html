@@ -1,0 +1,163 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sinalis</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="masthead">
+      <div class="brand">
+        <span class="sparkle">✦</span> Sinalis
+      </div>
+      <span>GLOBAL SOLUTION · FIAP</span>
+    </header>
+
+    <section class="intro">
+      <h1>
+        Escreva ou fale uma frase e veja os sinais em
+        <em>Libras.</em>
+      </h1>
+      <p>
+        Reconhecimento de voz em português brasileiro e
+        seleção de expressões disponíveis pelo Python.
+      </p>
+    </section>
+
+    <div class="layout">
+      <section class="panel input-panel">
+        <div class="eyebrow">FRASE</div>
+        <h2>Português do Brasil</h2>
+
+        <form id="form">
+          <textarea
+            id="frase"
+            aria-label="Digite uma frase"
+            maxlength="500"
+            rows="6"
+            placeholder="Escreva ou fale uma frase…"
+          ></textarea>
+
+          <div class="actions">
+            <button type="button" id="falar" class="button subtle">
+              ● Falar
+            </button>
+            <button type="submit" id="traduzir" class="button primary">
+              Traduzir frase
+            </button>
+            <button type="button" id="limpar" class="button text-button">
+              Limpar
+            </button>
+          </div>
+        </form>
+
+        <p class="status" id="voz" role="status">Microfone pronto.</p>
+
+        <div class="technical">
+          <strong>Processamento em Python</strong>
+          <p>Seleção de expressões por programação dinâmica (tabulação).</p>
+          <p>Palavras sem imagem aparecem como indisponíveis.</p>
+        </div>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="result-heading">
+          <div>
+            <div class="eyebrow">SINAIS DA FRASE</div>
+            <h2>Sequência visual</h2>
+          </div>
+          <span class="counter" id="contador">0 / 0</span>
+        </div>
+
+        <div class="viewer">
+          <div class="viewer-image" id="visual">
+            <div class="placeholder">
+              <span>✦</span>
+              <strong>Nenhum sinal</strong>
+              <small>Sua tradução aparece aqui</small>
+            </div>
+          </div>
+
+          <div class="viewer-details">
+            <span class="overline" id="rotulo">AGUARDANDO FRASE</span>
+            <h3 id="nome-sinal">Aguardando frase</h3>
+
+            <div class="playback">
+              <button type="button" id="reproduzir" class="button primary" disabled>
+                ▶ Reproduzir sequência
+              </button>
+              <button type="button" id="anterior" class="button subtle" disabled>
+                ← Anterior
+              </button>
+              <button type="button" id="proximo" class="button subtle" disabled>
+                Próximo →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="thumbnails" id="miniaturas"></div>
+        <p class="result-message" id="mensagem" role="status">
+          Fale ou digite uma frase para começar.
+        </p>
+        <div class="missing" id="ausentes" hidden></div>
+      </section>
+    </div>
+
+    <details class="catalog-panel" aria-label="Catálogo de palavras">
+      <summary class="catalog-toggle">
+        <span class="catalog-toggle-label">
+          <span class="eyebrow">CATÁLOGO DE LIBRAS</span>
+          <strong>Consultar catálogo de sinais</strong>
+          <small>
+            Clique para visualizar as 60 palavras e expressões disponíveis.
+          </small>
+        </span>
+        <span class="catalog-toggle-action">
+          Ver catálogo
+          <span class="catalog-chevron" aria-hidden="true">⌄</span>
+        </span>
+      </summary>
+
+      <div class="catalog-content">
+        <div class="catalog-heading">
+          <div>
+            <div class="eyebrow">CATÁLOGO</div>
+            <h2>Palavras e expressões</h2>
+            <p>Confira o que já tem imagem e o que você poderá adicionar depois.</p>
+          </div>
+          <div class="catalog-stats">
+            <strong>60 imagens</strong>
+            <span>60 sinais disponíveis</span>
+          </div>
+        </div>
+
+        <div class="catalog-tools">
+          <input
+            id="pesquisa"
+            aria-label="Pesquisar no catálogo"
+            placeholder="Buscar palavra ou expressão…"
+          >
+          <div class="filters">
+            <button type="button" data-filtro="todos" class="active">Todos</button>
+            <button type="button" data-filtro="disponiveis">Com imagem</button>
+            <button type="button" data-filtro="pendentes">Sem imagem</button>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogo"></div>
+        <p class="catalog-footnote">
+          O catálogo contém 60 ilustrações. Palavras fora dele
+          são identificadas pelo algoritmo em Python.
+        </p>
+      </div>
+    </details>
+
+    <footer>Sinalis · Global Solution FIAP</footer>
+  </main>
+</body>
+</html>
