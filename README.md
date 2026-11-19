@@ -11,7 +11,7 @@
 
 ## Execução
 
-1. Instale Python 3 (não precisa de Node.js, npm ou React).
+1. Instale Python 3
 2. Abra um terminal nesta pasta e execute `python main.py` (Windows também aceita `py main.py`).
 3. Acesse `http://localhost:8000`.
 
